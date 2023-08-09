@@ -1,0 +1,102 @@
+{
+	"info": {
+		"_postman_id": "ec23cbf4-c05f-4bb8-80d9-351d14161546",
+		"name": "block7-crud",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "28907957"
+	},
+	"item": [
+		{
+			"name": "actualizar persona",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"PacOOOOO\",\r\n    \"localidad\":\"Churriana\",\r\n    \"edad\" : \"42\"\r\n}"
+				},
+				"url": "localhost:8080/persona/2"
+			},
+			"response": []
+		},
+		{
+			"name": "insertar persona",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Manoli\",\r\n    \"localidad\":\"L'Hospitalet de Llobregat\",\r\n    \"edad\" : \"45\"\r\n}"
+				},
+				"url": "localhost:8080/persona"
+			},
+			"response": []
+		},
+		{
+			"name": "borrar persona",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": "localhost:8080/persona/1"
+			},
+			"response": []
+		},
+		{
+			"name": "buscar persona por id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": "localhost:8080/persona/person/1"
+			},
+			"response": []
+		},
+		{
+			"name": "buscar persona por nombre",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": "localhost:8080/persona/people/Manoli"
+			},
+			"response": []
+		},
+		{
+			"name": "obtener todas las personas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/persona"
+			},
+			"response": []
+		}
+	]
+}
