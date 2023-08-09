@@ -1,0 +1,93 @@
+{
+	"info": {
+		"_postman_id": "78f0914d-5052-4db9-9848-4571b91340b8",
+		"name": "block6-person-controllers",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "28907957"
+	},
+	"item": [
+		{
+			"name": "insertar ciudad1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\" : \"Churriana\",\r\n    \"numHabitantes\" : 3\r\n}"
+				},
+				"url": "localhost:8080/ciudad1/addCiudad"
+			},
+			"response": []
+		},
+		{
+			"name": "devuelve ciudades",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/ciudad2"
+			},
+			"response": []
+		},
+		{
+			"name": "inserta persona",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "nombre",
+						"value": "Juan",
+						"type": "text"
+					},
+					{
+						"key": "poblacion",
+						"value": "Estepa",
+						"type": "text"
+					},
+					{
+						"key": "edad",
+						"value": "34",
+						"type": "text"
+					}
+				],
+				"url": "localhost:8080/controlador1/addPersona"
+			},
+			"response": []
+		},
+		{
+			"name": "obtener por bean",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/bean/bean1"
+			},
+			"response": []
+		},
+		{
+			"name": "duplicar edad persona",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\" : \"Franchesco\",\r\n    \"poblacion\" : \"Albacete\",\r\n    \"edad\" : 13\r\n}"
+				},
+				"url": "localhost:8080/getPersona"
+			},
+			"response": []
+		}
+	]
+}
