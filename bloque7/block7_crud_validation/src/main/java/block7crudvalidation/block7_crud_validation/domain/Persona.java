@@ -1,9 +1,6 @@
 package block7crudvalidation.block7_crud_validation.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.NamedQuery;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,6 +13,7 @@ import java.time.LocalDate;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name="Persona")
 @NamedQuery(name = "Persona.findByUsuario",query = "SELECT p FROM Persona p WHERE p.usuario = :usuario")
 public class Persona {
 

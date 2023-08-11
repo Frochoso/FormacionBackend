@@ -2,6 +2,8 @@ package block7crudvalidation.block7_crud_validation.service;
 
 import block7crudvalidation.block7_crud_validation.dtos.PersonaDtoGet;
 import block7crudvalidation.block7_crud_validation.dtos.PersonaDtoPost;
+import block7crudvalidation.block7_crud_validation.error.UnprocessableEntityException;
+import jakarta.transaction.Transactional;
 
 import java.util.List;
 
@@ -13,5 +15,12 @@ public interface PersonaService {
 
     List<PersonaDtoGet> findAll();
 
-    PersonaDtoGet addUser (PersonaDtoPost personaDtoPost);
+    @Transactional
+    PersonaDtoGet addUser(PersonaDtoPost personaDtoPost) throws UnprocessableEntityException;
+
+    @Transactional
+    PersonaDtoGet deleteUser(Integer id);
+
+    @Transactional
+    PersonaDtoGet updatePersona(Integer id, PersonaDtoPost personaDtoPost);
 }
