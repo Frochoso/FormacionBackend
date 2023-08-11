@@ -16,8 +16,7 @@ public class Block1ProcessFileAndStreamsApplication {
     public static Lector lector = new Lector();
     static List<Person> filteredPeople = new ArrayList<>();
     static List<Person> menores = new ArrayList<>();
-    public static boolean primerMadrileno = true;
-    public static boolean primerBarcelones = true;
+    public static boolean isPrimerResidente = true;
 
     public static void main(String[] args) {
         try {
@@ -32,8 +31,8 @@ public class Block1ProcessFileAndStreamsApplication {
             System.out.println("MENORES DE 25: ");
             for (Person persona : menores) {
                 System.out.println(persona);
-                primerMadrileno(persona);
-                primerBarcelones(persona);
+                primerHabitante(persona, "Madrid");
+                primerHabitante(persona, "Barcelona");
             }
 
             System.out.println(" ");
@@ -78,37 +77,21 @@ public class Block1ProcessFileAndStreamsApplication {
         }
     }
 
-    public static void primerMadrileno(Person persona) {
-        if (primerMadrileno) {
-            Optional<Person> firstPersonFromMadrid = menores.stream()
-                    .filter(x -> persona.getTown().equalsIgnoreCase("Madrid"))
+    public static void primerHabitante(Person persona, String poblacion) {
+        if (isPrimerResidente) {
+            Optional<Person> firstPersonFromWantedTown = menores.stream()
+                    .filter(x -> persona.getTown().equalsIgnoreCase(poblacion))
                     .findFirst();
 
-            if (firstPersonFromMadrid.isPresent()) {
+            if (firstPersonFromWantedTown.isPresent()) {
                 System.out.println(" ");
-                System.out.println("PRIMERA PERSONA DE MADRID:");
+                System.out.println("PRIMERA PERSONA DE "+poblacion+": ");
                 System.out.println(persona.toString());
                 System.out.println(" ");
 
-                primerMadrileno = false;
+                isPrimerResidente = false;
             }
         }
     }
 
-    public static void primerBarcelones(Person persona) {
-        if (primerBarcelones) {
-            Optional<Person> firstPersonFromBarcelona = menores.stream()
-                    .filter(x -> persona.getTown().equalsIgnoreCase("Barcelona"))
-                    .findFirst();
-
-            if (firstPersonFromBarcelona.isPresent()) {
-                System.out.println(" ");
-                System.out.println("PRIMERA PERSONA DE BARCELONA:");
-                System.out.println(persona.toString());
-                System.out.println(" ");
-
-                primerBarcelones = false;
-            }
-        }
-    }
 }
