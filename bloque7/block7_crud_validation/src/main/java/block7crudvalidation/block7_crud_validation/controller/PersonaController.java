@@ -1,20 +1,15 @@
 package block7crudvalidation.block7_crud_validation.controller;
 
-import block7crudvalidation.block7_crud_validation.domain.Persona;
-import block7crudvalidation.block7_crud_validation.dtos.PersonaDtoGet;
-import block7crudvalidation.block7_crud_validation.dtos.PersonaDtoPost;
-import block7crudvalidation.block7_crud_validation.error.CustomError;
+import block7crudvalidation.block7_crud_validation.dtos.persona.PersonaDtoGet;
+import block7crudvalidation.block7_crud_validation.dtos.persona.PersonaDtoPost;
 import block7crudvalidation.block7_crud_validation.error.EntityNotFoundException;
-import block7crudvalidation.block7_crud_validation.error.ExceptionController;
 import block7crudvalidation.block7_crud_validation.error.UnprocessableEntityException;
 import block7crudvalidation.block7_crud_validation.service.PersonaServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @RestController

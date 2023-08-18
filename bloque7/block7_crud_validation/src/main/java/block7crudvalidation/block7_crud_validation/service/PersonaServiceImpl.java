@@ -1,18 +1,16 @@
 package block7crudvalidation.block7_crud_validation.service;
 
 import block7crudvalidation.block7_crud_validation.domain.Persona;
-import block7crudvalidation.block7_crud_validation.dtos.PersonaDtoGet;
-import block7crudvalidation.block7_crud_validation.dtos.PersonaDtoPost;
+import block7crudvalidation.block7_crud_validation.dtos.persona.PersonaDtoGet;
+import block7crudvalidation.block7_crud_validation.dtos.persona.PersonaDtoPost;
 import block7crudvalidation.block7_crud_validation.error.UnprocessableEntityException;
 import block7crudvalidation.block7_crud_validation.repository.PersonaRepository;
 import block7crudvalidation.block7_crud_validation.converters.PersonaMapper;
-import jakarta.persistence.EntityNotFoundException;
+import block7crudvalidation.block7_crud_validation.service.interfaces.PersonaService;
 import jakarta.transaction.Transactional;
 import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -26,7 +24,8 @@ public class PersonaServiceImpl implements PersonaService {
 
     @Override
     public PersonaDtoGet findById(Integer id) {
-        Persona personaOptional = personaRepository.findById(id).orElseThrow(() -> new block7crudvalidation.block7_crud_validation.error.EntityNotFoundException("Persona con id: " + id + " no encontrada"));
+        Persona personaOptional = personaRepository.findById(id).
+                orElseThrow(() -> new block7crudvalidation.block7_crud_validation.error.EntityNotFoundException("Persona con id: " + id + " no encontrada"));
         return mapper.convertPersonaToPersonaDtoGet(personaOptional);
     }
 
@@ -98,6 +97,9 @@ public class PersonaServiceImpl implements PersonaService {
     @Override
     @Transactional
     public PersonaDtoGet deleteUser(Integer id) {
+        if (personaRepository.findStudentAsociado(id) != null) {
+            throw new UnprocessableEntityException("No se puede borrar esta persona porque tiene un id de estudiante asociado.");
+        }
         Persona persona = personaRepository.findById(id).orElseThrow(() -> new block7crudvalidation.block7_crud_validation.error.EntityNotFoundException("Persona con id: " + id + " no encontrada"));
         personaRepository.delete(persona);
         return mapper.convertPersonaToPersonaDtoGet(persona);

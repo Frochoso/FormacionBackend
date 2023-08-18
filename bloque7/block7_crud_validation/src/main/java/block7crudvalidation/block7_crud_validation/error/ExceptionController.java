@@ -15,12 +15,12 @@ public class ExceptionController {
 
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler(EntityNotFoundException.class)
-    public CustomError handleEntityNotFoundException(EntityNotFoundException exception) {
+    public static CustomError handleEntityNotFoundException(EntityNotFoundException exception) {
         return new CustomError(LocalDate.now(), HttpStatus.NOT_FOUND.value(), exception.getMessage());
     }
 
     @ExceptionHandler(UnprocessableEntityException.class)
-    public CustomError handleUnproccesableEntityException(UnprocessableEntityException exception) {
+    public static CustomError handleUnproccesableEntityException(UnprocessableEntityException exception) {
         return new CustomError(LocalDate.now(), HttpStatus.UNPROCESSABLE_ENTITY.value(), exception.getMessage());
     }
 

@@ -1,4 +1,4 @@
-package block7crudvalidation.block7_crud_validation.dtos;
+package block7crudvalidation.block7_crud_validation.dtos.persona;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

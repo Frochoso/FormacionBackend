@@ -1,8 +1,8 @@
 package block7crudvalidation.block7_crud_validation.converters;
 
 import block7crudvalidation.block7_crud_validation.domain.Persona;
-import block7crudvalidation.block7_crud_validation.dtos.PersonaDtoGet;
-import block7crudvalidation.block7_crud_validation.dtos.PersonaDtoPost;
+import block7crudvalidation.block7_crud_validation.dtos.persona.PersonaDtoGet;
+import block7crudvalidation.block7_crud_validation.dtos.persona.PersonaDtoPost;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
@@ -25,7 +25,6 @@ public interface PersonaMapper {
     Persona convertPersonaDtoPostToPersona(PersonaDtoPost personaDtoPost);
 
     Persona convertPersonaDtoGetToPersona(PersonaDtoGet personaDtoGet);
-
 
     @Mapping(target = "idPersona",source="idPersona")
     @Mapping(target = "usuario",source="usuario")

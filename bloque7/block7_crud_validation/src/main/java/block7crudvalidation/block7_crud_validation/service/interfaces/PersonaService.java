@@ -1,7 +1,7 @@
-package block7crudvalidation.block7_crud_validation.service;
+package block7crudvalidation.block7_crud_validation.service.interfaces;
 
-import block7crudvalidation.block7_crud_validation.dtos.PersonaDtoGet;
-import block7crudvalidation.block7_crud_validation.dtos.PersonaDtoPost;
+import block7crudvalidation.block7_crud_validation.dtos.persona.PersonaDtoGet;
+import block7crudvalidation.block7_crud_validation.dtos.persona.PersonaDtoPost;
 import block7crudvalidation.block7_crud_validation.error.UnprocessableEntityException;
 import jakarta.transaction.Transactional;
 
