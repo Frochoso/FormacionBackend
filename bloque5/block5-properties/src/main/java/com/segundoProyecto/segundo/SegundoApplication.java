@@ -18,6 +18,12 @@ public class SegundoApplication implements CommandLineRunner {
     @Value("${my.number}")
     private String number;
 
+    @Value("${MYURL}")
+    private String myurl;
+
+    @Value("${MYURL2}")
+    private String myurl2;
+
     @Value("${new.property: new.property no tiene valor}")
     private String newProperty;
 
@@ -35,8 +41,8 @@ public class SegundoApplication implements CommandLineRunner {
         log.info("El valor de greeting es: " + greeting);
         log.info("El valor de my.number es: " + number);
         log.info("El valor de new.property es: " + newProperty);
-        log.info("El valor de MYURL es: "+System.getenv("MYURL"));
-        log.info("El valor de MYURL2 es: "+System.getenv().getOrDefault("MYURL2", "NO_tengo_valor"));
+        log.info("El valor de MYURL es: " + myurl);
+        log.info("El valor de MYURL2 es: " + myurl2);
     }
 
 }
