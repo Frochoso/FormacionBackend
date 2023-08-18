@@ -4,6 +4,9 @@ import block7crudvalidation.block7_crud_validation.converters.PersonaMapper;
 import block7crudvalidation.block7_crud_validation.converters.ProfessorMapper;
 import block7crudvalidation.block7_crud_validation.converters.StudentMapper;
 import block7crudvalidation.block7_crud_validation.domain.*;
+import block7crudvalidation.block7_crud_validation.dtos.asignatura.AsignaturaDtoGet;
+import block7crudvalidation.block7_crud_validation.dtos.asignaturaStudent.StudentAsignaturaDto;
+import block7crudvalidation.block7_crud_validation.dtos.asignaturaStudent.StudentAsignaturaDtoGet;
 import block7crudvalidation.block7_crud_validation.dtos.asignaturaStudent.StudentAsignaturaDtoPost;
 import block7crudvalidation.block7_crud_validation.dtos.student.StudentDtoGet;
 import block7crudvalidation.block7_crud_validation.dtos.student.StudentDtoPost;
@@ -52,8 +55,8 @@ public class StudentServiceImpl implements StudentService {
         student.setProfessor(professorMapper.professorDtoGetToProfessor(professorService.getProfessor(studentDtoPost.getIdProfessor(), outputType)));
         student.setPersona(personaMapper.convertPersonaDtoGetToPersona(personaService.findById(studentDtoPost.getIdPersona())));
 
-        StudentDtoGet resultado= studentMapper.studentToStudentDtoGet(studentRepository.save(student));
-        studentAsignaturaService.addRelationships(new StudentAsignaturaDtoPost(student.getIdStudent(), studentDtoPost.getAsignaturas()),student);
+        StudentDtoGet resultado = studentMapper.studentToStudentDtoGet(studentRepository.save(student));
+        studentAsignaturaService.addRelationships(new StudentAsignaturaDtoPost(student.getIdStudent(), studentDtoPost.getAsignaturas()), student);
 
         return resultado;
     }
@@ -102,7 +105,7 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public List<StudentDtoGet> findAllStudents() {
-        return null;
+        return studentMapper.studentToStudentDtoGet(studentRepository.findAll());
     }
 
     @Override
@@ -112,6 +115,20 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public StudentDtoGet deleteStudent(Integer idStudent) {
-        return null;
+        Student student = studentRepository.findById(idStudent).orElseThrow(() ->
+                new EntityNotFoundException("Estudiante con id: " + idStudent + " no encontrado."));
+
+        StudentAsignaturaDtoGet studentAsignaturaDtoGet = studentAsignaturaService.findAsignaturaByStudentId(idStudent);
+
+        List<StudentAsignaturaDto> studentAsignaturaDtoList = new ArrayList<>();
+
+        for (AsignaturaDtoGet asignaturas : studentAsignaturaDtoGet.getAsignaturaDtoGetSet()) {
+            studentAsignaturaDtoList.add(new StudentAsignaturaDto(idStudent, List.of(asignaturas.getIdAsignatura())));
+        }
+
+        studentAsignaturaService.removeRelationShips(studentAsignaturaDtoList);
+        studentRepository.delete(student);
+
+        return studentMapper.studentToStudentDtoGet(student);
     }
 }

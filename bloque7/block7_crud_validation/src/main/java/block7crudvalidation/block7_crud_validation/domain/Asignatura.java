@@ -15,7 +15,7 @@ import java.util.Set;
 @Getter
 @Setter
 @NoArgsConstructor
-@NamedQuery(name = "Asignatura.findAsignaturas", query = "SELECT a FROM Asignatura a WHERE a.students.asignatura.idAsignatura = :idAsignatura")
+@NamedQuery(name = "Asignatura.findAsignaturas", query = "SELECT a FROM Asignatura a WHERE a.idAsignatura = :idAsignatura")
 public class Asignatura {
 
     @Id
