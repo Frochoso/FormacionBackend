@@ -1,0 +1,344 @@
+{
+	"info": {
+		"_postman_id": "94e74b28-bc7c-4f7e-a7b9-dd847ef9be37",
+		"name": "block7-crud-validation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "28907957"
+	},
+	"item": [
+		{
+			"name": "crear persona",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"usuario\":\"miguel34\",\r\n    \"password\" : \"123\",\r\n    \"name\" : \"Miguel\",\r\n    \"surname\": \"Perez\",\r\n    \"companyEmail\" : \"miguel.perez@companyName.com\",\r\n    \"personalEmail\" : \"miguelGamerPro23@hotmail.com\",\r\n    \"city\" : \"Albacete\",\r\n    \"active\" :true,\r\n    \"createdDate\": \"2012-02-03\",\r\n    \"imagenUrl\" : \"https://youtu.be/dQw4w9WgXcQ\",\r\n    \"terminationDate\" : \"2018-04-12\"\r\n}"
+				},
+				"url": "localhost:8080/controller/addPerson"
+			},
+			"response": []
+		},
+		{
+			"name": "buscar por usuario",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/controller/findUser/miguel32"
+			},
+			"response": []
+		},
+		{
+			"name": "buscar por id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/controller/5"
+			},
+			"response": []
+		},
+		{
+			"name": "find all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/controller"
+			},
+			"response": []
+		},
+		{
+			"name": "borrar persona",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "localhost:8080/controller/deletePerson/1"
+			},
+			"response": []
+		},
+		{
+			"name": "actualizar persona",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"usuario\":\"Juan Angel\",\r\n    \"password\" : \"123\",\r\n    \"name\" : \"Juan Angel\",\r\n    \"surname\": \"Perez\",\r\n    \"companyEmail\" : \"miguel.perez@companyName.com\",\r\n    \"personalEmail\" : \"miguelGamerPro23@hotmail.com\",\r\n    \"city\" : \"Albacete\",\r\n    \"active\" :true,\r\n    \"createdDate\": \"2012-02-03\",\r\n    \"imagenUrl\" : \"https://youtu.be/dQw4w9WgXcQ\",\r\n    \"terminationDate\" : \"2018-04-12\"\r\n}"
+				},
+				"url": "localhost:8080/controller/updatePerson/1"
+			},
+			"response": []
+		},
+		{
+			"name": "nuevo professor",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"comments\" : \"El mejor\",\r\n    \"idPersona\" : 2,\r\n    \"branch\" : \"BACK\"\r\n}"
+				},
+				"url": "localhost:8080/professor/addProfessor"
+			},
+			"response": []
+		},
+		{
+			"name": "borrar professor",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "localhost:8080/professor/deleteProfessor/1"
+			},
+			"response": []
+		},
+		{
+			"name": "get professor",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/professor/getProfessor/1"
+			},
+			"response": []
+		},
+		{
+			"name": "update professor",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "Application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"comments\" : \"El mejor\",\r\n    \"idPersona\" : 1,\r\n    \"branch\" : \"FULLSTACK\"\r\n}"
+				},
+				"url": "localhost:8080/professor/updateProfessor/1"
+			},
+			"response": []
+		},
+		{
+			"name": "add student",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"numHoursWeek\": 2,\r\n    \"idPersona\":1,\r\n    \"idProfessor\":1,\r\n    \"comments\": \"Juega baloncesto\",\r\n    \"branch\": \"FRONT\",\r\n    \"asignaturas\":[\r\n        1,2,3\r\n    ]\r\n}"
+				},
+				"url": "localhost:8080/student/addStudent"
+			},
+			"response": []
+		},
+		{
+			"name": "get student by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/student/getStudent/1?outputType=full",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"student",
+						"getStudent",
+						"1"
+					],
+					"query": [
+						{
+							"key": "outputType",
+							"value": "full"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get student by name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/student/getStudent/name/Miguel?outputType=full",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"student",
+						"getStudent",
+						"name",
+						"Miguel"
+					],
+					"query": [
+						{
+							"key": "outputType",
+							"value": "full"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get professor by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/professor/getProfessor/1?outputType=full",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"professor",
+						"getProfessor",
+						"1"
+					],
+					"query": [
+						{
+							"key": "outputType",
+							"value": "full"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get professor by name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/professor/getProfessor/name/Miguel?outputType=full",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"professor",
+						"getProfessor",
+						"name",
+						"Miguel"
+					],
+					"query": [
+						{
+							"key": "outputType",
+							"value": "full"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all professors",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/professor?outputType=full",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"professor"
+					],
+					"query": [
+						{
+							"key": "outputType",
+							"value": "full"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtener asignaturas de estudiantes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/studentAsignaturas/getAsignaturaByStudentId/1"
+			},
+			"response": []
+		},
+		{
+			"name": "insertar asignaturas",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombreAsignatura\":\"Física\",\r\n    \"comments\":\"Un notas\",\r\n    \"initialDate\": \"2012-02-12\",\r\n    \"finishDate\": \"2012-02-13\"\r\n}"
+				},
+				"url": "localhost:8080/asignatura/addAsignatura"
+			},
+			"response": []
+		},
+		{
+			"name": "get asignaturas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/studentAsignaturas/getAsignaturaByStudentId/2"
+			},
+			"response": []
+		},
+		{
+			"name": "delete asignatura",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "localhost:8080/asignatura/deleteAsignatura/1"
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "localhost:8080/deleteStudent/1"
+			},
+			"response": []
+		}
+	]
+}
