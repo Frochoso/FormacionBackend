@@ -9,16 +9,24 @@ import org.springframework.context.annotation.PropertySource;
 @SpringBootApplication
 public class Block5ProfilesApplication implements CommandLineRunner {
 
-	@Value("${spring.profiles.active}")
-	private String activeProfile;
+    @Value("${spring.profiles.active}")
+    private static String activeProfile;
 
-	public static void main(String[] args) {
-		SpringApplication.run(Block5ProfilesApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(Block5ProfilesApplication.class, args);
 
-	@Override
-	public void run(String... args) throws Exception {
+        if (activeProfile.equals("INT")) {
+            System.out.println("Hola desde el perfil INT");
+        } else if (activeProfile.equals("local")) {
+            System.out.println("Hola desde el perfil local");
+        } else if (activeProfile.equals("PRO")) {
+            System.out.println("Hola desde el perfil PRO");
+        }
+    }
 
-	}
+    @Override
+    public void run(String... args) throws Exception {
+
+    }
 
 }

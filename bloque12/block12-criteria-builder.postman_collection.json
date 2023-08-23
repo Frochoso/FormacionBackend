@@ -1,0 +1,35 @@
+{
+	"info": {
+		"_postman_id": "26ff97fa-46d3-4b5f-a782-d59c6444e557",
+		"name": "block12-criteria-builder",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "28907957"
+	},
+	"item": [
+		{
+			"name": "consulta con filtros",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/controller/filters?usuario=miguel34",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"controller",
+						"filters"
+					],
+					"query": [
+						{
+							"key": "usuario",
+							"value": "miguel34"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
