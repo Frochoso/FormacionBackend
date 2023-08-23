@@ -71,8 +71,8 @@ public class PersonaController {
             , @PathVariable(value = "fechaDesde", required = false) LocalDate fechaDesde
             , @PathVariable(value = "fechaHasta", required = false) LocalDate fechaHasta
             , @PathVariable(value = "ordenar", required = false) String ordenar
-            , @PathVariable(value = "pagina", required = false) Integer pagina
-            , @PathVariable(value = "tamanoPagina", required = false) Integer tamanoPagina) {
+            , @RequestParam(defaultValue = "1") Integer pagina
+            , @RequestParam(defaultValue = "10") Integer tamanoPagina) {
 
         HashMap<String, Object> data = new HashMap<>();
         data.put("usuario", user);

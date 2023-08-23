@@ -73,14 +73,10 @@ public class PersonaRepositoryImpl {
         });
 
         TypedQuery<Persona> typedQuery = em.createQuery(query);
-
-        if (pagina != null && tamanoPagina != null) {
-            typedQuery.setFirstResult((pagina - 1) * tamanoPagina);
-            typedQuery.setMaxResults(tamanoPagina);
-        }
+        typedQuery.setFirstResult((pagina - 1) * tamanoPagina);
+        typedQuery.setMaxResults(tamanoPagina);
 
         return typedQuery.getResultList();
-
     }
 
 }
