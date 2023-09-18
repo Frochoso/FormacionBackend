@@ -1,0 +1,214 @@
+{
+	"info": {
+		"_postman_id": "3d9450c6-e2f8-4358-8ffc-0e7a9cb7874e",
+		"name": "block16-cloud",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "28907957"
+	},
+	"item": [
+		{
+			"name": "back",
+			"item": [
+				{
+					"name": "findCliente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/passenger/findCliente/1"
+					},
+					"response": []
+				},
+				{
+					"name": "addCliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"Juan Carlos\",\r\n    \"apellido\":\"\",\r\n    \"edad\":2,\r\n    \"email\": \"juanCarlos@gmail.com\",\r\n    \"tfno\":12903109\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/passenger/addCliente"
+					},
+					"response": []
+				},
+				{
+					"name": "deleteCliente",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "localhost:8080/passenger/deleteCliente/1"
+					},
+					"response": []
+				},
+				{
+					"name": "updateCliente",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"Juan Carlos\",\r\n    \"apellido\":\"\",\r\n    \"edad\":420,\r\n    \"email\": \"juanCarlos@gmail.com\",\r\n    \"tfno\":12903109\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/passenger/updateCliente/2"
+					},
+					"response": []
+				},
+				{
+					"name": "findViaje",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/trip/findViaje/1"
+					},
+					"response": []
+				},
+				{
+					"name": "addViaje",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"origin\":\"Albacete\",\r\n    \"destination\":\"Porto\",\r\n    \"departureDate\":\"2021-02-06\",\r\n    \"arrivalDate\":\"2021-02-07\",\r\n    \"status\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/trip/addViaje"
+					},
+					"response": []
+				},
+				{
+					"name": "deleteViaje",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "localhost:8080/trip/deleteViaje/1"
+					},
+					"response": []
+				},
+				{
+					"name": "updateViaje",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"origin\":\"Albacete\",\r\n    \"destination\":\"Cuenca\",\r\n    \"departureDate\":\"2021-02-06\",\r\n    \"arrivalDate\":\"2021-02-07\",\r\n    \"status\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/trip/updateViaje/2"
+					},
+					"response": []
+				},
+				{
+					"name": "trip/addPassenger",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "localhost:8080/trip/addPassenger/1/1"
+					},
+					"response": []
+				},
+				{
+					"name": "trip/updateTripStatus",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": "localhost:8080/trip/1/2"
+					},
+					"response": []
+				},
+				{
+					"name": "trip/checkTripStatus",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/trip/verify/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "back-front",
+			"item": [
+				{
+					"name": "generateTicket",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "localhost:8081/ticket/generateTicket/1/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "api-gateway",
+			"item": [
+				{
+					"name": "addCliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"Juan Carlos\",\r\n    \"apellido\":\"\",\r\n    \"edad\":2,\r\n    \"email\": \"juanCarlos@gmail.com\",\r\n    \"tfno\":12903109\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8082/passenger/addCliente"
+					},
+					"response": []
+				},
+				{
+					"name": "addViaje",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"origin\":\"Albacete\",\r\n    \"destination\":\"Porto\",\r\n    \"departureDate\":\"2021-02-06\",\r\n    \"arrivalDate\":\"2021-02-07\",\r\n    \"status\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8082/trip/addViaje"
+					},
+					"response": []
+				},
+				{
+					"name": "addTicket",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "localhost:8082/ticket/generateTicket/1/1"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -8,7 +8,6 @@ import block7crudvalidation.block7_crud_validation.error.EntityNotFoundException
 import block7crudvalidation.block7_crud_validation.error.UnprocessableEntityException;
 import block7crudvalidation.block7_crud_validation.repository.AsignaturaRepository;
 import block7crudvalidation.block7_crud_validation.service.interfaces.AsignaturaService;
-import block7crudvalidation.block7_crud_validation.service.interfaces.StudentAsignaturaService;
 import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
